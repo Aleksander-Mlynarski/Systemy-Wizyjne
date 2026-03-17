@@ -1,0 +1,9 @@
+*.bmp*
+*.jpg*
+*.jpeg*
+*.png*
+lut.py*
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+*$py.class
