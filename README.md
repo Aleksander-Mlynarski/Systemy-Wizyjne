@@ -30,8 +30,22 @@ Projekty zostały zrealizowane w architekturze notatników Jupyter, co pozwala n
 * Analiza rozkładu informacji i szumu na najbardziej (MSB) i najmniej (LSB) znaczących bitach.
 * Utratna rekonstrukcja obrazu zredukowanego wyłącznie do najstarszych bitów, demonstrująca podstawy mechanizmów kompresji danych wizyjnych.
 
+### 4. `04_Histogram_Equalization_and_Color_Spaces.ipynb` - Analiza Histogramu i Korekcja Kontrastu
+* Ekstrakcja i wizualizacja histogramów dla obrazów w skali szarości.
+* Liniowe rozciąganie histogramu (Contrast Stretching) maksymalizujące wykorzystanie zakresu dynamiki sensora.
+* Nieliniowe, globalne wyrównywanie histogramu (Histogram Equalization) z wykorzystaniem dystrybuanty (CDF).
+* Lokalna, adaptacyjna poprawa kontrastu algorytmem **CLAHE** w celu redukcji przesterowań i wzmocnienia szumów.
+* Optymalizacja korekcji w obrazach kolorowych poprzez transformację do przestrzeni **HSV** (modulacja wyłącznie kanału luminancji - V, chroniąca przed zaburzeniami barw).
+
+### 5. `05_Image_Binarization_and_Segmentation.ipynb` - Segmentacja i Binaryzacja Adaptacyjna
+* Globalna binaryzacja oparta na analizie bimodalności histogramu.
+* Implementacja algorytmów automatycznej optymalizacji progu odcięcia: **metoda iteracyjna** oraz optymalna **metoda Otsu** (maksymalizacja wariancji międzyklasowej).
+* Kompensacja gradientów oświetlenia (winietowania) za pomocą binaryzacji lokalnej (adaptacyjnej).
+* Zaawansowany algorytm **Sauvola-Pietikäinen** wykorzystujący lokalne odchylenie standardowe do wygładzania tła i ostrej detekcji krawędzi.
+* Segmentacja przedziałowa (binaryzacja dwuprogowa) z logiką AND do izolacji specyficznych cech (np. koloru skóry).
+
 ## Struktura i Zarządzanie Środowiskiem
 Projekt został skonfigurowany pod kątem utrzymania czystości repozytorium:
 * Skrypty zawierają procedury automatycznego czyszczenia pobranych danych tymczasowych (zdjęć testowych, cache'u algorytmów).
 * Plik `.gitignore` zapobiega wyciekowi danych binarnych i folderów środowisk wirtualnych do repozytorium zdalnego.
-* Dołączony `.dockerignore` przygotowuje strukturę pod bezproblemową konteneryzację (budowanie obrazów systemów wbudowanych).
+* Dołączony `.dockerignore` przygotowuje strukturę pod bezproblemową konteneryzację (budowanie obrazów dla aplikacji wizyjnych i systemów wbudowanych).
