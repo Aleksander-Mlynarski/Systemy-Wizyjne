@@ -44,6 +44,18 @@ Projekty zostały zrealizowane w architekturze notatników Jupyter, co pozwala n
 * Zaawansowany algorytm **Sauvola-Pietikäinen** wykorzystujący lokalne odchylenie standardowe do wygładzania tła i ostrej detekcji krawędzi.
 * Segmentacja przedziałowa (binaryzacja dwuprogowa) z logiką AND do izolacji specyficznych cech (np. koloru skóry).
 
+### 6. `06_Image_Scaling_and_Interpolation.ipynb` - Rozdzielczość Przestrzenna i Tonalna
+* Własna implementacja algorytmu powiększania obrazu przy użyciu metody Najbliższego Sąsiada.
+* Złożona matematycznie implementacja Interpolacji Dwuliniowej z zabezpieczeniami pamięci na skrajnych krawędziach obrazu.
+* Ewaluacja wydajności algorytmów biblioteki OpenCV (w tym zaawansowanych algorytmów Lanczos4).
+* Analiza wpływu redukcji głębi bitowej (kwantyzacji) na powstawanie efektu plamkowania (posterization) i granice percepcji.
+
+### 7. `07_Advanced_Interpolation_Bicubic.ipynb` - Interpolacja Dwusześcienna (Bicubic)
+* Niskopoziomowa implementacja zaawansowanej interpolacji analizującej otoczenie 4x4 (16 pikseli).
+* Rozwiązywanie układu równań liniowych z wykorzystaniem prekompilowanej macierzy odwrotnej i pochodnych cząstkowych.
+* Profesjonalna obsługa skrajnych krawędzi macierzy (Edge Cases) za pomocą wirtualnego paddingu (`cv2.copyMakeBorder`), całkowicie eliminująca błędy *Index Out of Bounds*.
+* Zarządzanie kompromisem architektonicznym (trade-off) pomiędzy wyższą ostrością krawędzi a rosnącą złożonością obliczeniową.
+
 ## Struktura i Zarządzanie Środowiskiem
 Projekt został skonfigurowany pod kątem utrzymania czystości repozytorium:
 * Skrypty zawierają procedury automatycznego czyszczenia pobranych danych tymczasowych (zdjęć testowych, cache'u algorytmów).
